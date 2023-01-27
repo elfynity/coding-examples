@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+
+
+<title></title>
+
+</head>
+<body>
+
+<h1></h1>
+
+<section class="slider-wrapper">
+  <button class="slide-arrow" id="slide-arrow-prev">
+    &#8249;
+  </button>
+  
+	<button class="slide-arrow" id="slide-arrow-next">
+    &#8250;
+  </button>
+	
+	
+  <ul class="slides-container" id="slides-container">
+    <li class="slide">
+			<div class="slide-inner">
+				<h2>1</h2>
+			</div><!--slide-container-->
+		</li>
+		
+		<li class="slide">
+			<div class="slide-inner">
+				<h2>1</h2>
+			</div><!--slide-container-->
+		</li>
+		
+		<li class="slide">
+			<div class="slide-inner">
+				<h2>1</h2>
+			</div><!--slide-container-->
+		</li>
+		
+		<li class="slide">
+			<div class="slide-inner">
+				<h2>1</h2>
+			</div><!--slide-container-->
+		</li>
+		
+		<li class="slide">
+			<div class="slide-inner">
+				<h2>1</h2>
+			</div><!--slide-container-->
+		</li>
+		
+		
+  </ul><!-- slides-container-->
+</section><!-- slider-wrapper-->
+
+
+
+
+
+<script type="text/javascript">
+const slidesContainer = document.getElementById("slides-container");
+const slide = document.querySelector(".slide");
+const prevButton = document.getElementById("slide-arrow-prev");
+const nextButton = document.getElementById("slide-arrow-next");
+
+nextButton.addEventListener("click", () => {
+  const slideWidth = slide.clientWidth;
+  slidesContainer.scrollLeft += slideWidth;
+});
+
+prevButton.addEventListener("click", () => {
+  const slideWidth = slide.clientWidth;
+  slidesContainer.scrollLeft -= slideWidth;
+});
+
+</script>
+
+</body>
+</html>
