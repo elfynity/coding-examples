@@ -3,8 +3,83 @@
 <head>
 
 
-<title></title>
+<title>Javascript Slider</title>
 
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1440px;
+  margin: auto;
+}
+
+.slider-wrapper {
+  position: relative;
+  overflow: hidden;
+	padding:0 30px;
+}
+
+.slides-container {
+  height: auto;
+  width: 100%;
+  display: flex;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slide {
+  width: 50%;
+  height: auto;
+  flex: 1 0 50%;
+	text-align:center;
+
+}
+
+.slide-inner{
+	margin:20px;
+	box-shadow: 7px 7px 13px #bbb;
+	border-radius:3px;		
+}
+
+
+.slide-arrow {
+  position: absolute;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 60px;
+  border: none;
+  width: 30px;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+  opacity: 0.5;
+	background-color:darkTurquoise;
+  transition: opacity 100ms;
+}
+
+.slide-arrow:hover,
+.slide-arrow:focus {
+  opacity: 1;
+}
+
+#slide-arrow-prev {
+  left: 0;
+  border-radius: 30px;
+}
+
+#slide-arrow-next {
+  right: 0;
+  border-radius: 30px
+}
+
+</style>
 </head>
 <body>
 
