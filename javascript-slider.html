@@ -10,9 +10,9 @@
   box-sizing: border-box;
 }
 
-body {
-  max-width: 1440px;
-  margin: auto;
+.wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 .slider-wrapper {
@@ -25,6 +25,7 @@ body {
   height: auto;
   width: 100%;
   display: flex;
+	align-items:center;
   overflow: scroll;
   scroll-behavior: smooth;
   list-style: none;
@@ -83,75 +84,81 @@ body {
 </head>
 <body>
 
-<h1>Javascript Slider</h1>
-<p>This is probably one of the most eloquent and easy scripts to display a slider that I have ever come across. Made it my own.</p>
 
-<section class="slider-wrapper">
-  <button class="slide-arrow" id="slide-arrow-prev">
-    &#8249;
-  </button>
-  
-	<button class="slide-arrow" id="slide-arrow-next">
-    &#8250;
-  </button>
-	
-	
-  <ul class="slides-container" id="slides-container">
-    <li class="slide">
-			<div class="slide-inner">
-				<h2>1</h2>
-			</div><!--slide-container-->
-		</li>
+<div class="wrapper">
+
+	<h1>Javascript Slider</h1>
+	<p>This is probably one of the most eloquent and easy scripts to display a slider that I have ever come across. Made it my own.</p>
+
+	<section class="slider-wrapper">
+		<button class="slide-arrow" id="slide-arrow-prev">
+			&#8249;
+		</button>
 		
-		<li class="slide">
-			<div class="slide-inner">
-				<h2>2</h2>
-			</div><!--slide-container-->
-		</li>
-		
-		<li class="slide">
-			<div class="slide-inner">
-				<h2>3</h2>
-			</div><!--slide-container-->
-		</li>
-		
-		<li class="slide">
-			<div class="slide-inner">
-				<h2>4</h2>
-			</div><!--slide-container-->
-		</li>
-		
-		<li class="slide">
-			<div class="slide-inner">
-				<h2>5</h2>
-			</div><!--slide-container-->
-		</li>
+		<button class="slide-arrow" id="slide-arrow-next">
+			&#8250;
+		</button>
 		
 		
-  </ul><!-- slides-container-->
-</section><!-- slider-wrapper-->
+		<ul class="slides-container" id="slides-container">
+			<li class="slide">
+				<div class="slide-inner">
+					<h2>1</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+				</div><!--slide-container-->
+			</li>
+			
+			<li class="slide">
+				<div class="slide-inner">
+					<h2>2</h2>
+				</div><!--slide-container-->
+			</li>
+			
+			<li class="slide">
+				<div class="slide-inner">
+					<h2>3</h2>
+				</div><!--slide-container-->
+			</li>
+			
+			<li class="slide">
+				<div class="slide-inner">
+					<h2>4</h2>
+				</div><!--slide-container-->
+			</li>
+			
+			<li class="slide">
+				<div class="slide-inner">
+					<h2>5</h2>
+				</div><!--slide-container-->
+			</li>
+			
+			
+		</ul><!-- slides-container-->
+	</section><!-- slider-wrapper-->
 
 
 
 
 
-<script type="text/javascript">
-const slidesContainer = document.getElementById("slides-container");
-const slide = document.querySelector(".slide");
-const prevButton = document.getElementById("slide-arrow-prev");
-const nextButton = document.getElementById("slide-arrow-next");
+	<script type="text/javascript">
+	const slidesContainer = document.getElementById("slides-container");
+	const slide = document.querySelector(".slide");
+	const prevButton = document.getElementById("slide-arrow-prev");
+	const nextButton = document.getElementById("slide-arrow-next");
 
-nextButton.addEventListener("click", () => {
-  const slideWidth = slide.clientWidth;
-  slidesContainer.scrollLeft += slideWidth;
-});
+	nextButton.addEventListener("click", () => {
+		const slideWidth = slide.clientWidth;
+		slidesContainer.scrollLeft += slideWidth;
+	});
 
-prevButton.addEventListener("click", () => {
-  const slideWidth = slide.clientWidth;
-  slidesContainer.scrollLeft -= slideWidth;
-});
+	prevButton.addEventListener("click", () => {
+		const slideWidth = slide.clientWidth;
+		slidesContainer.scrollLeft -= slideWidth;
+	});
 
-</script>
+	</script>
+
+</div><!--wrapper-->
 
 </body>
 </html>
