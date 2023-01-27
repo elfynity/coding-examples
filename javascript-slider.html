@@ -15,13 +15,13 @@
   margin: 0 auto;
 }
 
-.slider-wrapper {
+#devgirl-slider-wrapper {
   position: relative;
   overflow: hidden;
 	padding:0 30px;
 }
 
-.slides-container {
+#devgirl-slider-wrapper .slides-container {
   height: auto;
   width: 100%;
   display: flex;
@@ -33,7 +33,7 @@
   padding: 0;
 }
 
-.slide {
+#devgirl-slider-wrapper .slide {
   width: 50%;
   height: auto;
   flex: 1 0 50%;
@@ -41,14 +41,14 @@
 
 }
 
-.slide-inner{
+#devgirl-slider-wrapper .slide-inner{
 	margin:20px;
 	box-shadow: 7px 7px 13px #bbb;
 	border-radius:3px;		
 }
 
 
-.slide-arrow {
+#devgirl-slider-wrapper .slide-arrow {
   position: absolute;
   display: flex;
   top: 0;
@@ -65,17 +65,17 @@
   transition: opacity 100ms;
 }
 
-.slide-arrow:hover,
-.slide-arrow:focus {
+#devgirl-slider-wrapper .slide-arrow:hover,
+#devgirl-slider-wrapper .slide-arrow:focus {
   opacity: 1;
 }
 
-#slide-arrow-prev {
+#devgirl-slider-wrapper #slide-arrow-prev {
   left: 0;
   border-radius: 30px;
 }
 
-#slide-arrow-next {
+#devgirl-slider-wrapper #slide-arrow-next {
   right: 0;
   border-radius: 30px
 }
@@ -94,7 +94,7 @@
 	
 	
 	
-	<section class="slider-wrapper">
+	<section id="devgirl-slider-wrapper">
 		<button class="slide-arrow" id="slide-arrow-prev">
 			&#8249;
 		</button>
