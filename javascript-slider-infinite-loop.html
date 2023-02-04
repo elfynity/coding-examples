@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+<head>
+
+
+<title>Javascript Slider with infinite looping</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+#devgirl-slider-wrapper {
+  position: relative;
+  overflow: hidden;
+	padding:0 30px;
+}
+
+#devgirl-slider-wrapper .slides-container {
+  height: auto;
+  width: 100%;
+  display: flex;
+	align-items:center;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+	cursor: progress;
+}
+
+#devgirl-slider-wrapper .slide {
+  width: 50%;
+  height: auto;
+  flex: 1 0 50%;
+	text-align:center;
+
+}
+
+#devgirl-slider-wrapper .slide-inner{
+	margin:20px;
+	box-shadow: 7px 7px 13px #bbb;
+	border-radius:3px;		
+}
+
+
+#devgirl-slider-wrapper .slide-arrow {
+  position: absolute;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 60px;
+  border: none;
+  width: 30px;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+  opacity: 0.5;
+	background-color:darkTurquoise;
+  transition: opacity 100ms;
+}
+
+#devgirl-slider-wrapper .slide-arrow:hover,
+#devgirl-slider-wrapper .slide-arrow:focus {
+  opacity: 1;
+}
+
+#devgirl-slider-wrapper #slide-arrow-prev {
+  left: 0;
+  border-radius: 30px;
+}
+
+#devgirl-slider-wrapper #slide-arrow-next {
+  right: 0;
+  border-radius: 30px
+}
+
+
+
+@media only screen 
+and (max-width : 768px) {
+#devgirl-slider-wrapper .slides-container {
+	cursor: grab;
+}
+
+#devgirl-slider-wrapper .slide {
+  width: 100%;
+  height: auto;
+  flex: 1 0 100%;
+	text-align:center;
+	border-radius:5px;
+}
+}
+
+
+
+
+
+</style>
+</head>
+<body>
+
+
+<div class="wrapper">
+
+	<h1>Javascript Slider</h1>
+	<p>This is probably one of the most eloquent and easy scripts to display a slider that I have ever come across. Made it my own.</p>
+
+	
+	
+	
+	
+	<section id="devgirl-slider-wrapper">
+		<button class="slide-arrow" id="slide-arrow-prev">
+			&#8249;
+		</button>
+		
+		<button class="slide-arrow" id="slide-arrow-next">
+			&#8250;
+		</button>
+		
+		
+		<ul class="slides-container" id="slides-container">
+		
+			<li class="slide">
+				<div class="slide-inner">
+					<h2>1</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+				</div><!--slide-inner-->
+			</li>
+			
+			<li class="slide">
+				<div class="slide-inner">
+					<h2>2</h2>
+				</div><!--slide-inner-->
+			</li>
+			
+			<li class="slide">
+				<div class="slide-inner">
+					<h2>3</h2>
+				</div><!--slide-inner-->
+			</li>
+			
+			<li class="slide">
+				<div class="slide-inner">
+					<h2>4</h2>
+				</div><!--slide-inner-->
+			</li>
+			
+			<li class="slide">
+				<div class="slide-inner">
+					<h2>5</h2>
+				</div><!--slide-inner-->
+			</li>
+			
+			
+		</ul><!-- slides-container-->
+	</section><!-- slider-wrapper-->
+
+
+
+
+
+<script type="text/javascript" async>
+window.onload = function() {
+	
+	const slidesContainer = document.getElementById("slides-container");
+	slidesContainer.scrollLeft = 0;
+
+	
+	const slide = document.querySelector(".slide");
+	const prevButton = document.getElementById("slide-arrow-prev");
+	const nextButton = document.getElementById("slide-arrow-next");
+
+	nextButton.addEventListener("click", () => {
+		const slideWidth = slide.clientWidth;
+		if (slidesContainer.scrollLeft + slidesContainer.clientWidth >= slidesContainer.scrollWidth) {
+			slidesContainer.scrollLeft = 0;
+		} else {
+			slidesContainer.scrollLeft += slideWidth;
+		}
+	});
+
+	prevButton.addEventListener("click", () => {
+		const slideWidth = slide.clientWidth;
+		if (slidesContainer.scrollLeft === 0) {
+			//its moving the container to show the last slide. So it sets the value of slidesContainer.scrollLeft to be the full width of the container but subtracts the last slide (so that it is visible, otherwise it would scroll too far). 
+			slidesContainer.scrollLeft = slidesContainer.scrollWidth - slidesContainer.clientWidth;
+		} else {
+			slidesContainer.scrollLeft -= slideWidth;
+		}
+	});
+
+	slidesContainer.addEventListener("mouseenter", () => {
+		clearInterval(intervalId);
+	});
+
+	slidesContainer.addEventListener("mouseleave", () => {
+		intervalId = setInterval(() => {
+			nextButton.click();
+		}, 4000);
+	});
+
+	let intervalId = setInterval(() => {
+			nextButton.click();
+		}, 4000);
+	};
+
+</script>
+
+
+
+</div><!--wrapper-->
+
+</body>
+</html>
