@@ -31,6 +31,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+	cursor: progress;
 }
 
 #devgirl-slider-wrapper .slide {
@@ -79,6 +80,27 @@
   right: 0;
   border-radius: 30px
 }
+
+
+
+@media only screen 
+and (max-width : 768px) {
+#devgirl-slider-wrapper .slides-container {
+	cursor: grab;
+}
+
+#devgirl-slider-wrapper .slide {
+  width: 100%;
+  height: auto;
+  flex: 1 0 100%;
+	text-align:center;
+	border-radius:5px;
+}
+}
+
+
+
+
 
 </style>
 </head>
@@ -175,10 +197,20 @@ window.onload = function() {
 		}
 	});
 
-	setInterval(() => {
-		nextButton.click();
-	}, 4000);
-};
+	slidesContainer.addEventListener("mouseenter", () => {
+		clearInterval(intervalId);
+	});
+
+	slidesContainer.addEventListener("mouseleave", () => {
+		intervalId = setInterval(() => {
+			nextButton.click();
+		}, 4000);
+	});
+
+	let intervalId = setInterval(() => {
+			nextButton.click();
+		}, 4000);
+	};
 
 </script>
 
